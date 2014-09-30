@@ -1,0 +1,9 @@
+	<div class="jumbotron text-center">
+		<h3>{{ formType }}</h3>
+
+    <form name="userForm" class="validatable" novalidate>
+        <label>Email: </label><input type="email" id="email" name="email" data-ng-model="user.email" data-ng-disabled="formType === 'Change password'" required><br/>
+        <label>Password: </label><input type="password" id="password" name="password" data-ng-model="user.password" data-ng-minlength="6" required><br/> 
+        <button data-ng-click="userForm.$valid && submit()" data-ng-disabled="userForm.$invalid">Submit</button>
+    </form>
+	</div>

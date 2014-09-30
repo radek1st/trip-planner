@@ -1,0 +1,32 @@
+
+<div class="jumbotron text-center">
+
+	<h3>Welcome to Trip Planner</h3>
+
+	<div data-ng-hide="isLoggedIn">
+		<p>
+			If you have an account already, then <a href="#login">login</a>
+		</p>
+		<p>
+			Otherwise <a href="#create">create an account</a>
+		</p>
+	</div>
+
+	<div data-ng-show="isLoggedIn">
+
+		<p>
+			You are logged in as '{{ loggedInAs }}'
+		</p>
+		<p>
+			Click here to <a href="#" data-ng-click="logout()">logout</a>
+		</p>
+		<p>
+			Or here to <a href="#trips">view your trips</a>
+		</p>
+		<p>
+			Or here to <a href="#password">change your password</a>
+		</p>
+
+	</div>
+
+</div>

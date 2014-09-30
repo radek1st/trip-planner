@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html data-ng-app="tripPlannerApp">
+
+<head>
+  <!-- SCROLLS -->
+  <!-- missing fonts
+  <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/tp/bootstrap.min.css")" /-->
+  <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/main.css")">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" />
+
+  <!-- SPELLS -->
+  <script src="@routes.Assets.at("js/tp/angular.js")"></script>
+  <script src="@routes.Assets.at("js/tp/angular-route.js")"></script>
+  <script src="@routes.Assets.at("js/tp/ui-bootstrap-tpls-0.11.0.min.js")"></script>
+  <script src="@routes.Assets.at("js/tp/angular-local-storage.js")"></script>
+  <script src="@routes.Assets.at("js/script.js")"></script>
+</head>
+
+<!-- define angular controller -->
+<body data-ng-controller="mainController">
+
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Trip Planner</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="#trips"><i class="fa fa-plane"></i> Trips</a></li>
+        <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="main">
+  
+    <!-- angular templating -->
+		<!-- this is where content will be injected -->
+    <div ng-view></div>
+    
+  </div>
+  
+  <footer class="text-center">
+    <!--p>Author: Radek Ostrowski</p-->
+  </footer>
+  
+</body>
+
+</html>

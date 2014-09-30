@@ -1,0 +1,15 @@
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+form.validatable input.ng-invalid.ng-dirty {
+		background-color: #FA787E
+}
+
+form.validatable input.ng-valid.ng-dirty {
+	background-color: #78FA89
+}
+
+body {
+    padding-top: 70px;
+    padding-bottom: 30px;
+    min-width: 970px;
+}

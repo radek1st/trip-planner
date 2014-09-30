@@ -1,0 +1,40 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+#
+# Note: @controllers syntax signifies the actual controller instance, retrieved via GlobalSettings.getController().
+# ~~~~
+
+# Single endpoint for serving AngularJS
+GET     /                          	 					@controllers.Application.index
+
+# Basic Authentication helper endpoint 
+# turning user json into Base64 encoded username:password 
+POST    /api/token                  					@controllers.Users.issueToken
+
+# User management API
+POST 	/api/users  									@controllers.Users.createUser
+
+# Administrator only endpoint
+GET     /api/users                  					@controllers.Users.listUsers
+
+# Only for authenticated users (Basic Authentication)
+PUT     /api/users/me              				 		@controllers.Users.updateUser
+GET     /api/users/me               					@controllers.Users.getUser
+DELETE  /api/users/me               					@controllers.Users.deleteUser
+
+#Optional implementation for:
+#PUT     /api/users/:user            					@controllers.Users.updateUser(user: String)
+GET     /api/users/$userId<[a-fA-F0-9]{24}>           	@controllers.Users.getUserById(userId: String)
+
+# Trip API
+# Only for authenticated users
+POST	/api/users/me/trips								@controllers.Trips.createTrip
+GET		/api/users/me/trips								@controllers.Trips.listTrips(dateFrom: Option[String], dateTo: Option[String], destination: Option[String], commentContains: Option[String])
+
+GET		/api/users/me/trips/$id<[a-fA-F0-9]{24}>		@controllers.Trips.getTrip(id: String)
+PUT		/api/users/me/trips/$id<[a-fA-F0-9]{24}>		@controllers.Trips.updateTrip(id: String)
+DELETE	/api/users/me/trips/$id<[a-fA-F0-9]{24}>		@controllers.Trips.deleteTrip(id: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               					controllers.Assets.at(path="/public", file)
+

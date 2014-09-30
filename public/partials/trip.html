@@ -1,0 +1,27 @@
+
+<div class="jumbotron text-center">
+
+	<h3>Trip details:</h3>
+	<form name="tripForm" class="validatable" novalidate>
+		<label>Destination:</label>
+		<input type="text" data-ng-model="trip.destination" required/><br /> 
+		<label>Start Date</label>:
+		<input type="date" data-ng-model="trip.startDate" required/><br /> 
+		<label>End Date</label>:
+		<input type="date" data-ng-model="trip.endDate" required/><br /> 
+		<label>Comment:</label>
+		<textarea data-ng-model="trip.comment"></textarea><br /> 
+		<label data-ng-show="trip.daysLeft >= 0">Days left to trip start: </label>
+		{{ trip.daysLeft }}<br />
+
+		<button data-ng-click="tripForm.$valid && create(trip)" data-ng-disabled="tripForm.$invalid" data-ng-hide="trip.id">Create
+			a new trip</button>
+		<button data-ng-click="tripForm.$valid && update(trip)" data-ng-disabled="tripForm.$invalid" data-ng-show="trip.id">Update
+			the trip</button>
+		<button data-ng-click="delete(trip)" data-ng-show="trip.id">Delete
+			the trip</button>
+
+		<br />
+		<button data-ng-click="viewMyTrips()">Back to my trips</button>
+	</form>
+</div>

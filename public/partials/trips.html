@@ -1,0 +1,42 @@
+
+<div class="jumbotron text-center">
+	<form>
+	<p><label>List trips:</label>
+  <input type="radio" data-ng-model="search" value="all" data-ng-change="tripsForm.submit(search)">  All
+  <input type="radio" data-ng-model="search" value="nextMonth" data-ng-change="tripsForm.submit(search)"> Next Month
+  <input type="radio" data-ng-model="search" value="filter"> Advanced Filter
+  <br/><label>Or: </label><button data-ng-click="createTrip()">Create a trip</button>
+  </p>
+	</form>
+	<form>
+	<div data-ng-show="search == 'filter'">
+		Destination: <input type="text" id="destination" name="destination"
+			data-ng-model="tripsForm.destination"><br /> 
+			DateFrom: <input
+			type="date" id="dateFrom" name="dateFrom"
+			data-ng-model="tripsForm.dateFrom"><br /> 
+			DateTo: <input
+			type="date" id="dateTo" name="dateTo"
+			data-ng-model="tripsForm.dateTo"><br /> 
+			CommentContains: <input
+			type="text" id="commentContains" name="commentContains"
+			data-ng-model="tripsForm.commentContains"><br />
+		<button data-ng-click="tripsForm.submit(search)">Search</button>
+	</div>
+	</form>
+
+	<button data-ng-show="trips.length && search == 'nextMonth'" data-ng-click="print()">Print</button>
+	<div id="printable">
+	<h4 data-ng-show="trips.length">Trips:</h4>
+	<h4 data-ng-hide="trips.length">No trips found in this view</h4>
+	<ul class="list-group">
+		<li class="list-group-item" data-ng-repeat="trip in trips">
+			<div>
+				<h3>{{ trip.destination }} : {{ trip.startDate }} - {{
+					trip.endDate }} <button data-ng-click="selectTrip(trip)">Select</button></h3>
+				<p>{{ trip.comment}}</p>
+			</div>
+		</li>
+	</ul>
+	</div>	
+</div>
